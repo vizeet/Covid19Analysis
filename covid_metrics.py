@@ -1,14 +1,7 @@
 import requests
 import json
 import pandas as pd
-import plotly
-from plotly import graph_objs as go, offline as po, tools
-import dash
-import dash_core_components as dcc
-import dash_html_components as html
-from dash.dependencies import Input, Output
-import plotly.express as px
-import numpy as np
+#import plotly.express as px
 
 URL = 'https://api.covid19india.org/v3/data-all.json'
 
@@ -59,7 +52,8 @@ if __name__ == '__main__':
     df = get_7day_moving_avg(df)
     print(df)
 
-    fig = px.line(df, x=df.index, y='test_confirm_rate')
+#    fig = px.line(df, x=df.index, y='test_confirm_rate')
+    fig = px.line(df, x=df.index, y=df.test_confirm_rate)
     fig.update_layout(
         title="7 Day Moving Average of Covid-19 Daily Test Confirmation Rate in India",
         yaxis_title="Test Confirmation Rate",
